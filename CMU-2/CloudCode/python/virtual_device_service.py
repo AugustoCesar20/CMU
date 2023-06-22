@@ -14,8 +14,6 @@ current_temperature = 'void'
 current_light_level = 'void'
 led_state = {'red':0, 'green':0}
 
-kafka_bootstrap_servers = "localhost:9092"
-kafka_topic = "seu_topico"
 kafka_username = "user"
 kafka_password = "senha"
 
@@ -55,7 +53,7 @@ def consume_light_level():
         current_light_level = msg.value.decode()
 
 def produce_led_command(state, ledname):
-    producer = KafkaProducer(bootstrap_servers=kafka_bootstrap_servers, 
+    producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER+':'+KAFKA_PORT, 
                              security_protocol="SASL_PLAINTEXT", 
                              sasl_mechanism="PLAIN", 
                              sasl_plain_username=kafka_username, 
