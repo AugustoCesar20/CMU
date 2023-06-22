@@ -53,11 +53,7 @@ def consume_light_level():
         current_light_level = msg.value.decode()
 
 def produce_led_command(state, ledname):
-    producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER+':'+KAFKA_PORT, 
-                             security_protocol="SASL_PLAINTEXT", 
-                             sasl_mechanism="PLAIN", 
-                             sasl_plain_username=kafka_username, 
-                             sasl_plain_password=kafka_password)
+    producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER+':'+KAFKA_PORT, security_protocol="SASL_PLAINTEXT", sasl_mechanism="PLAIN", sasl_plain_username=kafka_username, sasl_plain_password=kafka_password)
     producer.send('ledcommand', key=ledname.encode(), value=str(state).encode())
     return state
         
