@@ -40,11 +40,11 @@ def authenticate_user(username, password):
     }
 
     if username in valid_users and valid_users[username] == password:
-        global kafka_username
-        global kafka_password 
+        #global kafka_username
+        #global kafka_password 
 
-        kafka_username = username
-        kafka_password = password
+        #kafka_username = username
+        #kafka_password = password
 
         return True
 
