@@ -17,23 +17,6 @@ led_state = {'red':0, 'green':0}
 kafka_username = "user"
 kafka_password = "senha"
 
-consumer_config = {
-    "bootstrap_servers": KAFKA_SERVER + ":" + KAFKA_PORT,
-    "group_id": "meu_grupo",
-    "security_protocol": "SASL_PLAINTEXT",
-    "sasl_mechanism": "PLAIN",
-    "sasl_plain_username": kafka_username,
-    "sasl_plain_password": kafka_password
-}
-
-producer_config = {
-    "bootstrap_servers": KAFKA_SERVER + ":" + KAFKA_PORT,
-    "security_protocol": "SASL_PLAINTEXT",
-    "sasl_mechanism": "PLAIN",
-    "sasl_plain_username": kafka_username,
-    "sasl_plain_password": kafka_password
-}
-
 def authenticate_user(username, password):
     valid_users = {
         "user": "senha"
