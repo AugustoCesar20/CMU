@@ -62,6 +62,8 @@ def read_light_sensor (pin_to_circuit):
     return count
 
 def consume_led_command():
+    #consumer = KafkaConsumer(bootstrap_servers=KAFKA_SERVER+':'+KAFKA_PORT, security_protocol="SASL_PLAINTEXT", sasl_mechanism="PLAIN", sasl_plain_username=kafka_username, sasl_plain_password=kafka_password)
+    #consumer = KafkaConsumer(**consumer_config)
     consumer = KafkaConsumer(bootstrap_servers=KAFKA_SERVER+':'+KAFKA_PORT)
     consumer.subscribe(topics=('ledcommand'))
     ledpin = 0
